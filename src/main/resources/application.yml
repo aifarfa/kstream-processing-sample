@@ -1,0 +1,20 @@
+environment: default
+
+spring:
+  application:
+    name: kstream-sample
+  cloud:
+    stream:
+      bindings:
+        process-in-0:
+#          content-type: application/json
+          destination: sample-input-stream-${environment}
+      function:
+        definition: process
+      kafka.streams.binder:
+        applicationId: kstream-sample
+
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      auto-offset-reset: latest
