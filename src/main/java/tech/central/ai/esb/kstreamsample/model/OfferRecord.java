@@ -5,27 +5,9 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.util.Date;
 
 public class OfferRecord {
-
-    private Instant timestamp;
-
-    private Data data;
-
-    public OfferRecord(Instant timestamp, Data data) {
-        this.timestamp = timestamp;
-        this.data = data;
-    }
-
-    public Instant getTimestamp() {
-        return timestamp;
-    }
-
-    public Data getData() {
-        return data;
-    }
 
     @JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
     public static class Data {

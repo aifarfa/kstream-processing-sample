@@ -19,7 +19,7 @@ import java.util.function.Function;
 @SpringBootApplication
 public class KstreamSampleApplication {
 
-    private static final String STORE_NAME = "sample-count-store";
+    private static final String STORE_NAME = "latest-offer-store";
 
     private static final Logger logger = LoggerFactory.getLogger(KstreamSampleApplication.class);
 
@@ -52,9 +52,10 @@ public class KstreamSampleApplication {
 
     private KeyValue<String, String> serializeOutput(Windowed<String> key, OfferRecord.Data value) {
         String message = MessageFormat.format(
-                "Latest value of {0} = {1} at {2}",
-                value.getProductSku(),
+                "Latest value of {0} = {1}, offer:{2} at {3}",
+                key.key(),
                 value.getPrice(),
+                value.getOfferId(),
                 value.getLastUpdated()
         );
         logger.info(message);
