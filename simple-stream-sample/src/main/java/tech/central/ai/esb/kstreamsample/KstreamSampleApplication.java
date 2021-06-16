@@ -50,6 +50,7 @@ public class KstreamSampleApplication {
                 .map(this::serializeOutput);
     }
 
+
     private KeyValue<String, String> serializeOutput(Windowed<String> key, OfferRecord.Data value) {
         String message = MessageFormat.format(
                 "Latest value of {0} = {1}, offer:{2} at {3}",

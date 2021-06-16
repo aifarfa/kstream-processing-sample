@@ -1,4 +1,4 @@
-package tech.central.ai.esb.kstreamsample;
+package kstreamsample;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerde;
+import tech.central.ai.esb.kstreamsample.KstreamSampleApplication;
 import tech.central.ai.esb.kstreamsample.model.OfferRecord;
 
 import java.math.BigDecimal;
@@ -34,7 +35,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInRelativeOrder;
 import static org.hamcrest.Matchers.startsWith;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(
+        classes = KstreamSampleApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.NONE
+)
 class KstreamSampleApplicationTests {
 
     @Autowired
