@@ -1,13 +1,19 @@
 package tech.central.ai.esb.kstreamsample.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OfferRecord {
+
+    protected OfferRecord() {
+
+    }
 
     @JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
     public static class Data {
@@ -20,7 +26,7 @@ public class OfferRecord {
 
         private Long quantity;
 
-        @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private Date lastUpdated;
 
         public String getOfferId() {
