@@ -1,0 +1,26 @@
+environment: default
+
+spring:
+  application:
+    name: kstream-sample
+  cloud:
+    stream:
+      function:
+        definition: joinProcess
+      bindings:
+        joinProcess-in-0:
+          destination: source-updated
+        joinProcess-in-1:
+          destination: product-created
+        joinProcess-out-0:
+          destination: product-source-updates
+
+      kafka.streams.binder:
+        applicationId: kstream-sample
+        brokers: localhost:9092
+        configuration:
+          commit.interval.ms: 1000
+          default:
+            key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
