@@ -6,19 +6,12 @@ spring:
   cloud:
     stream:
       function:
-        definition: joinProcess
+        definition: process
       bindings:
-#        process-out-0:
-#          destination: sample-output
-#        process-in-0:
-#          destination: sample-input
-
-        joinProcess-in-0:
-          destination: source-updated
-        joinProcess-in-1:
-          destination: product-created
-        joinProcess-out-0:
-          destination: product-source-updates
+        process-out-0:
+          destination: sample-output
+        process-in-0:
+          destination: sample-input
 
       kafka.streams.binder:
         applicationId: kstream-sample
